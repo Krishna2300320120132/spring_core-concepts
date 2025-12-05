@@ -3,7 +3,8 @@ package com.substring.core;
 import com.substring.core.concepts.Fuel;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
+import com.substring.core.concepts.Engine;
+import com.substring.core.concepts.Car;
 /**
  * Hello world!
  *
@@ -49,11 +50,6 @@ public class App
 
 
 
-
-
-
-
-
 //        ba ye hm xml file me hai ab java file me annotation use kr ke hm bean use karenge
 
         ApplicationContext context=new AnnotationConfigApplicationContext(Config.class);
@@ -61,6 +57,12 @@ public class App
 
         Fuel fuel=context.getBean("petrol",Fuel.class);
         fuel.use();
+        Engine bmwEngine=context.getBean("bmwEngine", Engine.class);
+        bmwEngine.startEngine();
+
+        System.out.println("=====================================");
+        Car mercedes= context.getBean("mercedes",Car.class);
+        mercedes.startCar();
 //        name ki jagah class ka camelcase use karega
     }
 }
